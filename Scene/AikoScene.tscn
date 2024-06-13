@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://cdouwb1lv52f4"]
+
+[ext_resource type="Script" path="res://Scripts/Character.cs" id="1_075v3"]
+[ext_resource type="Texture2D" uid="uid://4k1sw3iv0vq0" path="res://Assets/Dog.png" id="2_ifk0q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drb3a"]
+atlas = ExtResource("2_ifk0q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpnc4"]
+atlas = ExtResource("2_ifk0q")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5jqm"]
+atlas = ExtResource("2_ifk0q")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv1xp"]
+atlas = ExtResource("2_ifk0q")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsxbo"]
+atlas = ExtResource("2_ifk0q")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cpf4"]
+atlas = ExtResource("2_ifk0q")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usarf"]
+atlas = ExtResource("2_ifk0q")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrve4"]
+atlas = ExtResource("2_ifk0q")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wbn32"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drb3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpnc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5jqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv1xp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsxbo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cpf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usarf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrve4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="CharScene" type="Node2D" node_paths=PackedStringArray("sprite2D")]
+script = ExtResource("1_075v3")
+sprite2D = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_wbn32")
+animation = &"walk"
