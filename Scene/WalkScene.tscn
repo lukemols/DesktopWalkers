@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://tlrp37nigfb6"]
+
+[ext_resource type="Script" path="res://Scripts/WalkScene.cs" id="1_8kys8"]
+[ext_resource type="PackedScene" uid="uid://cdouwb1lv52f4" path="res://Scene/CharScene.tscn" id="2_0nfy3"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_8kys8")
+CharacterScene = ExtResource("2_0nfy3")
