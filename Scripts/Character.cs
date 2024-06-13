@@ -8,20 +8,13 @@ public partial class Character : Node2D
 	[Export]
 	private AnimatedSprite2D sprite2D;
 
-	public Vector2I Size { get; set; } = new Vector2I(64, 64);
+	public Vector2I SpriteSize { get; set; } = new Vector2I(64, 64);
 	public Enums.CharacterStatus CharacterStatus { get { return characterStatus; } set { SetStatus(value); } }
-	public Enums.Direction Direction { get; set; }
+	public Enums.Direction Direction { get { return direction; } set { SetDirection(value); } }
 
 	private Enums.CharacterStatus characterStatus;
+	private Enums.Direction direction;
 
-	public override void _Ready()
-	{
-		CharacterStatus = Enums.CharacterStatus.Idle;
-	}
-
-	public override void _Process(double delta)
-	{
-	}
 
 	private void SetStatus(Enums.CharacterStatus newStatus)
 	{
@@ -39,9 +32,17 @@ public partial class Character : Node2D
 		}
 	}
 
+	private void SetDirection(Enums.Direction newDirection)
+	{
+		if (direction != newDirection)
+		{
+			FlipDirection();
+		}
+	}
+
 	public void FlipDirection()
 	{
-		Direction = Enums.FlipDirection(Direction);
-		sprite2D.FlipH = (Direction == Enums.Direction.Left); // if direction is left, flip H
+		direction = Enums.FlipDirection(direction);
+		sprite2D.FlipH = (direction == Enums.Direction.Left); // if direction is left, flip H
 	}
 }

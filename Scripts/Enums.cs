@@ -19,4 +19,9 @@ public class Enums
 	{
 		return dir == Direction.Left ? Direction.Right : Direction.Left;
 	}
+
+	public static Direction GetDirection(int val)
+	{
+		return val < 0 ? Direction.Left : Direction.Right;
+	}
 }

@@ -13,6 +13,7 @@ config_version=5
 config/name="DesktopWalkers"
 run/main_scene="res://Scene/WalkScene.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 0)
 boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/use_filter=false
@@ -20,10 +21,13 @@ config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=320
+window/size/viewport_height=160
 window/size/resizable=false
 window/size/borderless=true
 window/size/always_on_top=true
 window/size/transparent=true
+window/energy_saving/keep_screen_on=false
 window/per_pixel_transparency/allowed=true
 
 [dotnet]
@@ -32,4 +36,6 @@ project/assembly_name="DesktopWalkers"
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.301961, 0.301961, 0.301961, 0)
 viewport/transparent_background=true
