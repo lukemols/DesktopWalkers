@@ -43,7 +43,6 @@ public partial class WalkScene : Node2D
 		{
 			if (MouseEvent.IsPressed())
 			{
-				targetPosition = (int)MouseEvent.GlobalPosition.X;
 				character.CharacterStatus = Enums.CharacterStatus.Walk;
 			}
 		}
@@ -76,14 +75,13 @@ public partial class WalkScene : Node2D
 		{
 			Vector2I position = window.Position;
 
-			if (targetPosition > 0)
+			targetPosition = DisplayServer.MouseGetPosition().X;
+
+			int diff = targetPosition - position.X;
+			character.Direction = Enums.GetDirection(diff);
+			if (Math.Abs(diff) < 2)
 			{
-				int diff = targetPosition - position.X;
-				character.Direction = Enums.GetDirection(diff);
-				if (Math.Abs(diff) < 20)
-				{
-					targetPosition = -1;
-				}
+				character.CharacterStatus = Enums.CharacterStatus.Idle;
 			}
 
 			// Moves the character
