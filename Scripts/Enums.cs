@@ -1,12 +1,16 @@
 ﻿using Godot;
+using System;
 
 public class Enums
 {
+	[Flags]
 	public enum CharacterStatus
 	{
-		Idle,
-		Walk,
-		Sleep
+		Idle = 1 << 1,
+		Walk = 1 << 2,
+		Sleep = 1 << 3,
+		Die = 1 << 4,
+		Resurrect = 1 << 5,
 	}
 
 	public enum Direction

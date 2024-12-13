@@ -8,6 +8,9 @@ public partial class Character : Node2D
 	[Export]
 	private AnimatedSprite2D sprite2D;
 
+	[Export]
+	private Enums.CharacterStatus AllowedStatuses;
+
 	public Vector2I SpriteSize { get; set; } = new Vector2I(64, 64);
 	public Enums.CharacterStatus CharacterStatus { get { return characterStatus; } set { SetStatus(value); } }
 	public Enums.Direction Direction { get { return direction; } set { SetDirection(value); } }
